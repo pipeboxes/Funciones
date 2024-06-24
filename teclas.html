@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teclas</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+    <div>
+        <h5>Presiona las teclas a, s, d, q, w, e</h5>
+    </div>
+    <div id="key"></div>
+    <script>
+        let currentDiv = null;
+
+        const keyDiv = document.getElementById('key');
+
+        document.addEventListener('keydown', function (event) {
+            if (event.code === 'KeyA') {
+                keyDiv.style.backgroundColor = 'pink';
+            } else if (event.code === 'KeyS') {
+                keyDiv.style.backgroundColor = 'orange';
+            } else if (event.code === 'KeyD') {
+                keyDiv.style.backgroundColor = 'cyan';
+            } else if (event.code === 'KeyQ') {
+                if (!currentDiv) {
+                    currentDiv = document.createElement('div');
+                    currentDiv.className = 'box purple';
+                    keyDiv.insertAdjacentElement('afterend', currentDiv);
+                } else {
+                    currentDiv.className = 'box purple';
+                }
+            } else if (event.code === 'KeyW') {
+                if (currentDiv) {
+                    currentDiv.className = 'box gray';
+                }
+            } else if (event.code === 'KeyE') {
+                if (currentDiv) {
+                    currentDiv.className = 'box brown';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
